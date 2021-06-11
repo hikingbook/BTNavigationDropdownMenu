@@ -32,6 +32,7 @@ final class BTConfiguration {
     var selectedCellTextLabelColor: UIColor?
     var cellTextLabelFont: UIFont!
     var navigationBarTitleFont: UIFont
+    var navigationBarSubtitleFont: UIFont
     var cellTextLabelAlignment: NSTextAlignment!
     var cellSelectionColor: UIColor?
     var checkMarkImage: UIImage!
@@ -62,6 +63,7 @@ final class BTConfiguration {
         self.selectedCellTextLabelColor = UIColor.darkGray
         self.cellTextLabelFont = UIFont.systemFont(ofSize: 17, weight: .bold)
         self.navigationBarTitleFont = UIFont.systemFont(ofSize: 17, weight: .bold)
+        self.navigationBarSubtitleFont = UIFont.systemFont(ofSize: 10)
         self.cellTextLabelAlignment = NSTextAlignment.left
         self.cellSelectionColor = UIColor.lightGray
         self.checkMarkImage = UIImage(contentsOfFile: checkMarkImagePath!)

@@ -25,7 +25,11 @@ import UIKit
 
 // Content view of table view cell
 class BTTableCellContentView: UIView {
-    var separatorColor: UIColor = UIColor.black
+    var separatorColor: UIColor = UIColor.black {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,8 +54,8 @@ class BTTableCellContentView: UIView {
         // Set separator color of dropdown menu based on barStyle
         context?.setStrokeColor(self.separatorColor.cgColor)
         context?.setLineWidth(1)
-        context?.move(to: CGPoint(x: 0, y: self.bounds.size.height))
-        context?.addLine(to: CGPoint(x: self.bounds.size.width, y: self.bounds.size.height))
+        context?.move(to: CGPoint(x: 20, y: self.bounds.size.height))
+        context?.addLine(to: CGPoint(x: self.bounds.size.width - 40, y: self.bounds.size.height))
         context?.strokePath()
     }
 }

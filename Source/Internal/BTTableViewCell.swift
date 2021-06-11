@@ -30,6 +30,17 @@ class BTTableViewCell: UITableViewCell {
     var checkmarkIcon: UIImageView!
     var cellContentFrame: CGRect!
     var configuration: BTConfiguration!
+
+    var separator: BTTableCellContentView!
+    var showSeparator: Bool = false {
+        didSet {
+            if showSeparator, let cellSeparatorColor = self.configuration.cellSeparatorColor {
+                separator.separatorColor = cellSeparatorColor
+            } else {
+                separator.separatorColor = .clear
+            }
+        }
+    }
     
     init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, configuration: BTConfiguration) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -65,10 +76,7 @@ class BTTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.checkmarkIcon)
         
         // Separator for cell
-        let separator = BTTableCellContentView(frame: cellContentFrame)
-        if let cellSeparatorColor = self.configuration.cellSeparatorColor {
-            separator.separatorColor = cellSeparatorColor
-        }
+        self.separator = BTTableCellContentView(frame: cellContentFrame)
         self.contentView.addSubview(separator)
     }
     
